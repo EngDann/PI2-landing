@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Projeto Integrador 2</title>
+        <link rel="icon" href="img/logo-pi2.png" size="32x32" />
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"
+        />
+        <link rel="stylesheet" href="css/style.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
+        />
+    </head>
+    <body class="leading-normal tracking-normal text-gray-800">
+        <nav
+            id="header"
+            class="fixed w-full z-30 top-0 text-white bg-blue-800 shadow-lg dark:bg-black"
+        >
+            <div
+                class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2"
+            >
+                <div class="flex items-center" id="logo">
+                    <a
+                        href="https://residenciaticbrisa.github.io/T2G3-Sistema-Instalacao-Eletrica/info/home"
+                    >
+                        <img src="img/unb.png" alt="PI2Logo" />
+                    </a>
+                </div>
+                <div
+                    id="nav-toggle"
+                    class="cursor-pointer lg:hidden flex items-center"
+                    onclick="toggleMenu()"
+                >
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
+                <div
+                    class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden mt-2 lg:mt-0 bg-white lg:bg-transparent text-black p-4 lg:p-0 z-20"
+                    id="nav-content"
+                >
+                    <ul
+                        class="list-reset lg:flex justify-end flex-1 items-center"
+                    >
+                        <li class="navbar-item" id="desc">
+                            <a href="http://127.0.0.1:8000/planodeensino/"
+                                >Plano de Ensino</a
+                            >
+                        </li>
+                        <li class="navbar-item" id="func">
+                            <a href="http://127.0.0.1:8000/projetos/"
+                                >Projetos</a
+                            >
+                        </li>
+                        <li class="navbar-item" id="teamm">
+                            <a href="http://127.0.0.1:8000/materialDeApoio/"
+                                >Material de Apoio</a
+                            >
+                        </li>
+                        <li class="navbar-item" id="teste">
+                            <a
+                                href="https://docs.google.com/forms/d/e/1FAIpQLScTdKQHOIgNS8X3a_6VcIXS9LtX1-SEXz9Qvop2IRvS2pee8Q/viewform"
+                                target="_blank"
+                            >
+                                <button
+                                    id="navAction"
+                                    class="hover:underline bg-yellow-500 text-gray-800 font-bold rounded-full py-4 px-8 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
+                                >
+                                    Seja um Parceiro
+                                </button>
+                            </a>
+                        </li>
+                    </ul>
+                    <button
+                        id="modeToggle"
+                        class="ml-4 p-2 rounded-full"
+                        style="background: transparent"
+                    >
+                        <img
+                            id="img-sun-moon"
+                            src="img/sun.png"
+                            alt="Modo Noturno"
+                            width="33px;"
+                            class="h-6 w-6 hover:scale-110 transition-transform duration-300 ease-in-out sun-f"
+                        />
+                    </button>
+                </div>
+            </div>
+            <hr class="border-b border-gray-100 opacity-25 my-0 py-0" />
+        </nav>
+        <div class="pt-24 gradient-bg dark:gradient-bg-dark">
+            <div
+                class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center"
+            >
+                <h1
+                    class="w-full text-5xl font-bold leading-tight text-center text-white my-4"
+                >
+                    Projeto Integrador 2
+                </h1>
+                <div
+                    class="flex flex-col w-full md:w-1/2 justify-center items-start text-center md:text-left"
+                >
+                    <p class="leading-normal text-2xl mb-8 text-white">
+                        O Projeto Integrador de Engenharias 2 (PI2) é uma
+                        disciplina obrigatória na Faculdade UnB Gama (FGA) para
+                        todos os cursos de engenharia. Ela foca no
+                        desenvolvimento de projetos multidisciplinares, visando
+                        solucionar problemas reais definidos por alunos e
+                        professores. A disciplina envolve a criação de
+                        protótipos de produtos, utilizando boas práticas de
+                        engenharia e conhecimentos de outras disciplinas.
+                    </p>
+                </div>
+                <div class="w-full md:w-1/2 py-6 text-center">
+                    <img
+                        class="w-full md:w-4/5 z-50"
+                        src="img/pi2-removebg.png"
+                    />
+                </div>
+            </div>
+            <svg
+                class="waves"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 24 150 28"
+                preserveAspectRatio="none"
+                shape-rendering="auto"
+            >
+                <defs>
+                    <path
+                        id="gentle-wave"
+                        d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"
+                    />
+                </defs>
+                <g class="parallax">
+                    <use
+                        href="#gentle-wave"
+                        x="48"
+                        y="0"
+                        fill="rgba(255,255,255,0.7)"
+                    />
+                    <use
+                        href="#gentle-wave"
+                        x="48"
+                        y="3"
+                        fill="rgba(255,255,255,0.5)"
+                    />
+                    <use
+                        href="#gentle-wave"
+                        x="48"
+                        y="5"
+                        fill="rgba(255,255,255,0.3)"
+                    />
+                    <use href="#gentle-wave" x="48" y="7" fill="#fff" />
+                </g>
+            </svg>
+        </div>
+
+        <section class="bg-white border-b py-8 dark:bg-gray-800" id="descricao">
+            <div class="container max-w-5xl mx-auto m-8">
+                <h2
+                    class="text-6xl font-bold leading-tight text-center text-gray-800 dark:text-white"
+                >
+                    Ciclo de Atividades
+                </h2>
+                <div class="flex flex-wrap">
+                    <div class="w-full md:w-1/2 p-6">
+                        <h3
+                            class="text-4xl text-gray-800 font-bold leading-none mb-3 dark:text-white"
+                        >
+                            Fase 1 - Problematização
+                        </h3>
+                        <p
+                            class="text-lg text-gray-600 mb-8 dark:text-gray-300"
+                        >
+                            Definir um problema prático que possa ser resolvido
+                            utilizando conhecimentos multidisciplinares.
+                            Utilizam-se, como referência, as áreas de
+                            conhecimento dos cursos de engenharia da FGA.
+                        </p>
+                    </div>
+                    <div class="w-full md:w-1/2 p-6">
+                        <img
+                            id="image1"
+                            src="img/Questions.gif"
+                            alt="Imagem de eletricista"
+                        />
+                    </div>
+                </div>
+                <div class="flex flex-wrap mt-6">
+                    <div class="w-full md:w-1/2 p-6">
+                        <img
+                            id="image2"
+                            src="img/Business Plan.gif"
+                            alt="Imagem de eletricista"
+                        />
+                    </div>
+                    <div class="w-full md:w-1/2 p-6">
+                        <h3
+                            class="text-4xl text-gray-800 font-bold leading-none mb-3 dark:text-white"
+                        >
+                            Fase 2 - Concepção e detalhamento da solução
+                        </h3>
+                        <p
+                            class="text-lg text-gray-600 mb-8 dark:text-gray-300"
+                        >
+                            Conceber e detalhar os itens da arquitetura básica
+                            da solução a ser utilizada no projeto, envolvendo as
+                            diversas áreas de conhecimento Definir aspectos
+                            relacionados ao gerenciamento das atividades do
+                            projeto.
+                        </p>
+                    </div>
+                </div>
+                <div class="flex flex-wrap mt-6">
+                    <div class="w-full md:w-1/2 p-6">
+                        <h3
+                            class="text-4xl text-gray-800 font-bold leading-none mb-3 dark:text-white"
+                        >
+                            Fase 3 - Projeto e construção de subsistemas da
+                            solução proposta
+                        </h3>
+                        <p
+                            class="text-lg text-gray-600 mb-8 dark:text-gray-300"
+                        >
+                            Projeto de solução: modelagem e cálculos
+                            matemáticos, simulação, testes computacionais, etc.
+                            Construir os componentes e/ou subsistemas da solução
+                            prevista pelo projeto prático de engenharias.
+                        </p>
+                    </div>
+                    <div class="w-full md:w-1/2 p-6">
+                        <img
+                            id="image3"
+                            src="img/Team work.gif"
+                            alt="Imagem de eletricista"
+                        />
+                    </div>
+                </div>
+                <div class="flex flex-wrap mt-6">
+                    <div class="w-full md:w-1/2 p-6">
+                        <img
+                            id="image4"
+                            src="img/Team goals.gif"
+                            alt="Imagem de eletricista"
+                        />
+                    </div>
+                    <div class="w-full md:w-1/2 p-6">
+                        <h3
+                            class="text-4xl text-gray-800 font-bold leading-none mb-3 dark:text-white"
+                        >
+                            Fase 4 - Integração de subsistemas e finalização do
+                            produto
+                        </h3>
+                        <p
+                            class="text-lg text-gray-600 mb-8 dark:text-gray-300"
+                        >
+                            Executar o projeto de integração dos
+                            componentes/subsistemas, conforme a arquitetura da
+                            solução proposta pela equipe. Implantar o produto
+                            final previsto como resultado do projeto de
+                            engenharia.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section
+            class="bg-white border-b py-8 dark:bg-gray-800"
+            id="funcionalidades"
+        >
+            <div class="container max-w-5xl mx-auto m-8">
+                <h2
+                    class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800 dark:text-white"
+                >
+                    Projetos
+                </h2>
+                <div class="w-full mb-4">
+                    <div
+                        class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"
+                    ></div>
+                </div>
+                <div class="flex flex-wrap">
+                    <a
+                        href="https://lappis-unb.gitlab.io/fga-pi2/semestre-2024-1/grupo-03/docs/home/"
+                        class="w-full sm:w-1/2 p-6 text-center project-item"
+                        target="_blank"
+                    >
+                        <h3
+                            class="text-3xl text-gray-800 font-bold leading-none mb-3 dark:text-white"
+                        >
+                            Tracker Solar
+                        </h3>
+                        <div class="flex items-center">
+                            <div class="w">
+                                <p
+                                    class="text-gray-600 mb-8 dark:text-gray-300"
+                                >
+                                    O "Tracker Solar" é um sistema de
+                                    rastreamento que aumenta a eficiência de
+                                    placas solares, utilizando sensores e
+                                    motores para seguir o movimento do sol.
+                                    Envolve engenharia Aeroespacial, Eletrônica,
+                                    de Energia e de Software para otimizar a
+                                    captação de energia solar.
+                                </p>
+                            </div>
+                            <div class="w image-container-project">
+                                <img
+                                    src="img/Sun energy.gif"
+                                    alt="Tracker Solar"
+                                />
+                            </div>
+                        </div>
+                    </a>
+                    <a
+                        href="https://relatorio-fga-pi2-semestre-2024-1-grupo05-4beaf972d28f4e6162d41.gitlab.io/"
+                        class="w-full sm:w-1/2 p-6 text-center project-item"
+                        target="_blank"
+                    >
+                        <h3
+                            class="text-3xl text-gray-800 font-bold leading-none mb-3 dark:text-white"
+                        >
+                            Aquamático
+                        </h3>
+                        <div class="flex items-center">
+                            <div class="w">
+                                <p
+                                    class="text-gray-600 mb-8 dark:text-gray-300"
+                                >
+                                    O Aquamático automatiza a manutenção e
+                                    alimentação de aquários, monitorando pH,
+                                    temperatura e nível da água. Utiliza
+                                    sensores e uma interface mobile para
+                                    controle, garantindo um ambiente saudável
+                                    para os animais aquáticos.
+                                </p>
+                            </div>
+                            <div class="w image-container-project">
+                                <img src="img/Fish bowl.gif" alt="Aquamático" />
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="flex flex-wrap">
+                    <a
+                        href="https://docs-fga-pi2-semestre-2024-1-grupo-06-0b350550c6bd5168e7922a7d8.gitlab.io/"
+                        class="w-full sm:w-1/2 p-6 text-center project-item"
+                        target="_blank"
+                    >
+                        <h3
+                            class="text-3xl text-gray-800 font-bold leading-none mb-3 dark:text-white"
+                        >
+                            Fogão Inteligente
+                        </h3>
+                        <div class="flex items-center">
+                            <div class="w">
+                                <p
+                                    class="text-gray-600 mb-8 dark:text-gray-300"
+                                >
+                                    O Fogão Inteligente é um fogão portátil de
+                                    indução alimentado por energia solar. Inclui
+                                    controle remoto via aplicativo,
+                                    monitoramento em tempo real e segurança
+                                    integrada, promovendo eficiência energética
+                                    e sustentabilidade.
+                                </p>
+                            </div>
+                            <div class="w image-container-project">
+                                <img
+                                    src="img/Cooking.gif"
+                                    alt="Fogão Inteligente"
+                                />
+                            </div>
+                        </div>
+                    </a>
+                    <a
+                        href="https://esteira-inteligente-docs-fga-pi2-semestre-2024-1-4f19bee6666f37.gitlab.io/"
+                        class="w-full sm:w-1/2 p-6 text-center project-item"
+                        target="_blank"
+                    >
+                        <h3
+                            class="text-3xl text-gray-800 font-bold leading-none mb-3 dark:text-white"
+                        >
+                            Esteira Inteligente
+                        </h3>
+                        <div class="flex items-center">
+                            <div class="w">
+                                <p
+                                    class="text-gray-600 mb-8 dark:text-gray-300"
+                                >
+                                    A Esteira Inteligente é um equipamento
+                                    industrial que facilita a montagem de kits,
+                                    identificando peças com câmeras e aferição
+                                    de massa. Ela assegura precisão e segurança
+                                    no processo, utilizando normas técnicas e
+                                    promovendo eficiência na produção.
+                                </p>
+                            </div>
+                            <div class="w image-container-project">
+                                <img
+                                    src="img/Manufacturing Process.gif"
+                                    alt="Esteira Inteligente"
+                                />
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white py-8 dark:bg-gray-800" id="team">
+            <div class="container max-w-5xl mx-auto m-8">
+                <h2
+                    class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800 dark:text-white"
+                >
+                    Professores
+                </h2>
+                <div class="w-full mb-4">
+                    <div
+                        class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"
+                    ></div>
+                </div>
+                <div class="team-carousel">
+                    <div class="p-6 text-center team-member">
+                        <h3
+                            class="text-3xl text-gray-800 font-bold leading-none mb-3 dark:text-white"
+                        >
+                            Alex Reis
+                        </h3>
+                        <div class="image-container mb-3">
+                            <a href="mailto:alexreis@unb.br" target="_blank">
+                                <img
+                                    src="img/professor1.jpg"
+                                    alt="Alex Reis"
+                                    class="team-img"
+                                />
+                            </a>
+                        </div>
+                        <div class="flex justify-center items-center mb-3">
+                            <a href="mailto:alexreis@unb.br" target="_blank">
+                                <img
+                                    src="img/mail.png"
+                                    width="33px;"
+                                    alt="GitHub"
+                                    class="mr-2"
+                                />
+                            </a>
+                            <a
+                                href="https://www.linkedin.com/in/alex-reis-3b4b0894/?originalSubdomain=br"
+                                target="_blank"
+                            >
+                                <img
+                                    src="img/linkedin.png"
+                                    width="33px;"
+                                    alt="LinkedIn"
+                                />
+                            </a>
+                        </div>
+                        <ul class="text-gray-600 mb-8 dark:text-gray-300">
+                            <li>
+                                Professor do curso de Engenharia de Energia.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="p-6 text-center team-member">
+                        <h3
+                            class="text-3xl text-gray-800 font-bold leading-none mb-3 dark:text-white"
+                        >
+                            Carla Rocha
+                        </h3>
+                        <div class="image-container mb-3">
+                            <a href="https://carlarocha.org/ " target="_blank">
+                                <img
+                                    src="img/professor2.jpg"
+                                    alt="Carla Rocha"
+                                    class="team-img"
+                                />
+                            </a>
+                        </div>
+                        <div class="flex justify-center items-center mb-3">
+                            <a href="mailto:caguiar@unb.br" target="_blank">
+                                <img
+                                    src="img/mail.png"
+                                    width="33px;"
+                                    alt="GitHub"
+                                    class="mr-2"
+                                />
+                            </a>
+                            <a
+                                href="https://www.linkedin.com/in/carla-rocha-a4287a19/"
+                                target="_blank"
+                            >
+                                <img
+                                    src="img/linkedin.png"
+                                    width="33px;"
+                                    alt="LinkedIn"
+                                />
+                            </a>
+                        </div>
+                        <ul class="text-gray-600 mb-8 dark:text-gray-300">
+                            <li>
+                                Professora do Curso de Engenharia de Software.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="p-6 text-center team-member">
+                        <h3
+                            class="text-3xl text-gray-800 font-bold leading-none mb-3 dark:text-white"
+                        >
+                            Rafael Castilho
+                        </h3>
+                        <div class="image-container mb-3">
+                            <a
+                                href="http://lea.unb.br/pt_br/arquivos/pessoa/rafael-castilho-faria-mendes"
+                                target="_blank"
+                            >
+                                <img
+                                    src="img/professor3.jpg"
+                                    alt="Rafael Castilho Faria Mendes"
+                                    class="team-img"
+                                />
+                            </a>
+                        </div>
+                        <div class="flex justify-center items-center mb-3">
+                            <a
+                                href="mailto:rafael.mendes@unb.br"
+                                target="_blank"
+                            >
+                                <img
+                                    src="img/mail.png"
+                                    width="33px;"
+                                    alt="GitHub"
+                                    class="mr-2"
+                                />
+                            </a>
+                            <a
+                                href="http://lea.unb.br/pt_br/arquivos/pessoa/rafael-castilho-faria-mendes"
+                                target="_blank"
+                            >
+                                <img
+                                    src="img/linkedin.png"
+                                    width="33px;"
+                                    alt="LinkedIn"
+                                />
+                            </a>
+                        </div>
+                        <ul class="text-gray-600 mb-8 dark:text-gray-300">
+                            <li>Professor da Engenharia Aeroespacial.</li>
+                        </ul>
+                    </div>
+                    <div class="p-6 text-center team-member">
+                        <h3
+                            class="text-3xl text-gray-800 font-bold leading-none mb-3 dark:text-white"
+                        >
+                            Rhander Viana
+                        </h3>
+                        <div class="image-container mb-3">
+                            <a
+                                href="https://sigaa.unb.br/sigaa/public/docente/portal.jsf?siape=1568990"
+                                target="_blank"
+                            >
+                                <img
+                                    src="img/no_picture.png"
+                                    alt=" Rhander Viana"
+                                    class="team-img"
+                                />
+                            </a>
+                        </div>
+                        <div class="flex justify-center items-center mb-3">
+                            <a href="mailto:rhander@unb.br" target="_blank">
+                                <img
+                                    src="img/mail.png"
+                                    width="33px;"
+                                    alt="GitHub"
+                                    class="mr-2"
+                                />
+                            </a>
+                            <a
+                                href="https://sigaa.unb.br/sigaa/public/docente/portal.jsf?siape=1568990"
+                                target="_blank"
+                            >
+                                <img
+                                    src="img/linkedin.png"
+                                    width="33px;"
+                                    alt="LinkedIn"
+                                />
+                            </a>
+                        </div>
+                        <ul class="text-gray-600 mb-8 dark:text-gray-300">
+                            <li>Professor da Engenharia Automotiva.</li>
+                        </ul>
+                    </div>
+                    <div class="p-6 text-center team-member">
+                        <h3
+                            class="text-3xl text-gray-800 font-bold leading-none mb-3 dark:text-white"
+                        >
+                            Suelia de Siqueira
+                        </h3>
+                        <div class="image-container mb-3">
+                            <a
+                                href="https://sigaa.unb.br/sigaa/public/docente/portal.jsf?siape=2506617"
+                                target="_blank"
+                            >
+                                <img
+                                    src="img/professor5.jpg"
+                                    alt="Suelia de Siqueira Rodrigues Fleury Rosa"
+                                    class="team-img"
+                                />
+                            </a>
+                        </div>
+                        <div class="flex justify-center items-center mb-3">
+                            <a href="mailto:suelia@unb.br" target="_blank">
+                                <img
+                                    src="img/mail.png"
+                                    width="33px;"
+                                    alt="GitHub"
+                                    class="mr-2"
+                                />
+                            </a>
+                            <a
+                                href="https://sigaa.unb.br/sigaa/public/docente/portal.jsf?siape=2506617"
+                                target="_blank"
+                            >
+                                <img
+                                    src="img/linkedin.png"
+                                    width="33px;"
+                                    alt="LinkedIn"
+                                />
+                            </a>
+                        </div>
+                        <ul class="text-gray-600 mb-8 dark:text-gray-300">
+                            <li>Professor da Engenharia Eletrônica.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="marquee">
+            <h2 class="text-4xl font-bold mb-6">Parceiros Envolvidos</h2>
+            <div class="container">
+                <div class="pic-container">
+                    <div class="pic">
+                        <img src="img/lappis.png" alt="img" />
+                    </div>
+                    <div class="pic">
+                        <img src="img/unb.png" alt="img" />
+                    </div>
+                    <div class="pic">
+                        <img src="img/softex.png" alt="img" />
+                    </div>
+                    <div class="pic">
+                        <img src="img/mcti.png" alt="img" />
+                    </div>
+                    <div class="pic">
+                        <img src="img/logo.png" alt="img" />
+                    </div>
+                    <div class="pic">
+                        <img src="img/lappis.png" alt="img" />
+                    </div>
+                    <div class="pic">
+                        <img src="img/unb.png" alt="img" />
+                    </div>
+                    <div class="pic">
+                        <img src="img/softex.png" alt="img" />
+                    </div>
+                    <div class="pic">
+                        <img src="img/mcti.png" alt="img" />
+                    </div>
+                    <div class="pic">
+                        <img src="img/logo.png" alt="img" />
+                    </div>
+                    <div class="pic">
+                        <img src="img/lappis.png" alt="img" />
+                    </div>
+                    <div class="pic">
+                        <img src="img/unb.png" alt="img" />
+                    </div>
+                    <div class="pic">
+                        <img src="img/softex.png" alt="img" />
+                    </div>
+                    <div class="pic">
+                        <img src="img/mcti.png" alt="img" />
+                    </div>
+                    <div class="pic">
+                        <img src="img/logo.png" alt="img" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-gray-800 text-white py-16">
+            <div class="container mx-auto text-center">
+                <h2 class="text-4xl font-bold mb-6">
+                    Seja um Parceiro dos Projetos de PI2
+                </h2>
+                <div class="flex justify-center space-x-4 mb-8">
+                    <div class="text-center">
+                        <div class="icons-wrapper shine"></div>
+                    </div>
+                    <div class="text-center">
+                        <div
+                            class="rounded-full bg-gray-700 w-16 h-16 flex items-center justify-center mx-auto mb-2"
+                        >
+                            <i
+                                class="fa fa-handshake fa-beat-fade"
+                                style="color: #f7f2f2; font-size: 35px"
+                            ></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <p class="mb-4">
+                            O Projeto Integrador 2 (PI2) é uma iniciativa que
+                            reúne estudantes talentosos e dedicados das
+                            engenharias da Universidade de Brasília (UnB) para
+                            desenvolver soluções inovadoras em projetos
+                            desafiadores. Estamos em busca de empresas parceiras
+                            que queiram se envolver nesse processo, contribuindo
+                            com desafios reais que possam ser resolvidos por
+                            nossas equipes multidisciplinares.
+                        </p>
+                        <a
+                            href="https://docs.google.com/forms/d/e/1FAIpQLScTdKQHOIgNS8X3a_6VcIXS9LtX1-SEXz9Qvop2IRvS2pee8Q/viewform"
+                            target="_blank"
+                        >
+                            <button
+                                id="navAction"
+                                class="hover:underline bg-yellow-500 text-gray-800 font-bold rounded-full py-4 px-8 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
+                            >
+                                Seja um Parceiro
+                            </button>
+                        </a>
+                    </div>
+                    <div>
+                        <p>
+                            Ao se tornar um parceiro do PI2, sua empresa terá a
+                            oportunidade de colaborar diretamente na formação de
+                            futuros engenheiros, ao mesmo tempo em que acessa
+                            soluções criativas e inovadoras para os desafios do
+                            mercado. Nossos alunos estão preparados para
+                            trabalhar em projetos que integram conhecimentos de
+                            diversas áreas, oferecendo uma perspectiva única e
+                            atualizada para problemas complexos.
+                        </p>
+                        <p>
+                            Além de contribuir para o desenvolvimento acadêmico
+                            e profissional dos estudantes, sua empresa poderá
+                            testar novas ideias, explorar tecnologias emergentes
+                            e identificar talentos promissores para futuras
+                            contratações. Juntos, podemos transformar desafios
+                            em oportunidades, promovendo a inovação e o
+                            crescimento mútuo.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-white py-6 dark:bg-black">
+            <div class="container mx-auto px-4 text-center">
+                <p class="mt-4">
+                    &copy; Site desenvolvido por
+                    <a href="https://github.com/EngDann" target="_blank"
+                        >EngDann</a
+                    >
+                    e mantido por
+                    <a
+                        href="https://github.com/ResidenciaTICBrisa/T2G3-Sistema-Instalacao-Eletrica"
+                        target="_blank"
+                        >SIGE IE</a
+                    >.
+                </p>
+            </div>
+        </footer>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+        <script src="js/script.js"></script>
+    </body>
+</html>
